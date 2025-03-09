@@ -34,7 +34,7 @@ class Functions:
         if row:
             stored_hash = row[0]
             if stored_hash == hashlib.sha256(password.encode()).hexdigest():
-                messagebox.showinfo('Sistema Ventas','Iniciando sesion al sistema...')
+                messagebox.showinfo('Sistema Ventas','Iniciando sesión al sistema...')
                 return True
             else:
                 messagebox.showerror('Error', 'Contraseña Incorrecta')
