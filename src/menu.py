@@ -10,7 +10,17 @@ class Menu:
     def __init__(self, root):
         self.root = root
         self.root.title('Sistema de Gestion de Ventas')
-        self.root.geometry('1200x600')
+        
+        # ------------------------------------------------------------------------
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        window_width = 1200
+        window_height = 600                           # Centra la ventana en la pantalla
+
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+
+        self.root.geometry(f"{window_width}x{window_height}+{x}+{y}") 
         self.root.configure(bg='#FFFFFF')
         
         # Configuracion de la tipografia
