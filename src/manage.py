@@ -25,43 +25,43 @@ class Manager:
         self.frame.place(relx=0.5, rely=0.5, anchor='center')
         
         # Configuracion de la tipografia
-        self.tipografia_subtitulo = Font(family="Poppins", size=20)
-        self.boton_entrar = Font(family="Poppins", size=12)
-        self.tipografia_texto = Font(family="Poppins", size=12)
+        self.subtitle_typography = Font(family="Poppins", size=20)
+        self.enter_button = Font(family="Poppins", size=12)
+        self.text_typography = Font(family="Poppins", size=12)
         
         # ----------------------------------------------------------------------------------------------------------
-        self.label = tk.Label(self.frame, text='Bienvenido de Nuevo', font=self.tipografia_subtitulo, bg='#FFFFFF')
+        self.label = tk.Label(self.frame, text='Bienvenido de Nuevo', font=self.subtitle_typography, bg='#FFFFFF')
         self.label.grid(row=0, column=0, columnspan=2, pady=10)
         
         # User
         self.label_user = tk.Label(self.frame,text="👤", font=("Arial", 14), bg="white")
         self.label_user.grid(row=1, column=0, padx=5, pady=5)
-        self.entry_user = tk.Entry(self.frame, width=25, font=self.tipografia_texto)
+        self.entry_user = tk.Entry(self.frame, width=25, font=self.text_typography)
         self.entry_user.grid(row=1, column=1, pady=5)
         
         # Password
         self.label_password = tk.Label(self.frame, text="🔒", font=("Arial", 14), bg="white")
         self.label_password.grid(row=2, column=0, padx=5, pady=5)
-        self.entry_pass = tk.Entry(self.frame, width=25, font=self.tipografia_texto, show="*")
-        self.entry_pass.grid(row=2, column=1, pady=5)
+        self.entry_password = tk.Entry(self.frame, width=25, font=self.text_typography, show="*")
+        self.entry_password.grid(row=2, column=1, pady=5)
         
         # ----------------------------------------------------------------------------------------------------------
-        btn_entrar = tk.Button(self.frame, text="Entrar", font=self.boton_entrar, bg="#00bf63", fg="black", width=15, command=self.enter)
-        btn_entrar.grid(row=3, column=0, columnspan=2, pady=10)
+        btn_enter = tk.Button(self.frame, text="Entrar", font=self.enter_button, bg="#00bf63", fg="black", width=15, command=self.enter)
+        btn_enter.grid(row=3, column=0, columnspan=2, pady=10)
         
         self.functions = Functions()
         
     # Funcion para ingresar al sistema
     def enter(self):
         username = self.entry_user.get()
-        password = self.entry_pass.get()
+        password = self.entry_password.get()
         if self.functions.Enter(username, password):
             self.root.destroy()
-            self.abrir_menu()
+            self.open_menu()
     
     # Funcion para abrir la ventana del menu
-    def abrir_menu(self):
+    def open_menu(self):
         from src.menu import Menu  # Importar aquí para evitar el bucle
-        nueva_ventana = tk.Tk()
-        app = Menu(nueva_ventana)
-        nueva_ventana.mainloop()
+        new_window = tk.Tk()
+        app = Menu(new_window)
+        new_window.mainloop()
